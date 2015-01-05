@@ -1,0 +1,23 @@
+%syntax-version=1.0.0
+%project=turu.me
+%uri=https://github.com/theory/sqitch-intro/
+
+
+extensions 2015-01-08T02:43:56Z Sam Merry <sam@turu.me> # Postgres extensions.
+schema.turu 2015-01-05T07:20:36Z Sam Merry <sam@turu.me> # Schema version 1 for all turu.me objects.
+functions [schema.turu] 2015-01-08T18:47:03Z Sam Merry <sam@turu.me> # Helper functions.
+postgrest_auth 2015-01-11T08:45:19Z Sam Merry <sam@turu.me> # Authentication table for postgrest.
+table.accounts [schema.turu] 2015-01-05T07:23:06Z Sam Merry <sam@turu.me> # Creates table to track Accounts.
+table.descriptions [schema.turu] 2015-01-05T07:46:59Z Sam Merry <sam@turu.me> # Creates description table for all things that need descriptions.
+table.devices [schema.turu] 2015-01-05T08:58:19Z Sam Merry <sam@turu.me> # Creates devices table.
+table.units [schema.turu table.descriptions] 2015-01-05T21:36:21Z Sam Merry <sam@turu.me> # Creates units table.
+table.metrics [schema.turu] 2015-01-05T21:29:41Z Sam Merry <sam@turu.me> # Creates metrics table.
+table.events [schema.turu table.descriptions table.metrics table.devices] 2015-01-05T09:30:09Z Sam Merry <sam@turu.me> # Creates events table.
+table.grow_cycle [schema.turu table.descriptions table.units] 2015-01-06T06:57:16Z Sam Merry <sam@turu.me> # Creates grow cycle table.
+mtm.devices_devices [schema.turu] 2015-01-06T07:03:56Z Sam Merry <sam@turu.me> # Creates a devices to devices (many to many) table.
+mtm.accounts_events [schema.turu] 2015-01-06T07:09:07Z Sam Merry <sam@turu.me> # Creates an accounts to events (many to many) table.
+mtm.accounts_devices [schema.turu] 2015-01-06T07:14:51Z Sam Merry <sam@turu.me> # Creates an accounts to devices (many to many) table.
+mtm.accounts_growcycles [schema.turu] 2015-01-06T07:15:33Z Sam Merry <sam@turu.me> # Creates an accounts to devices (many to many) table.
+view.device [schema.turu] 2015-01-08T02:59:41Z Sam Merry <sam@turu.me> # Device api view.
+view.metrics [schema.turu] 2015-01-08T03:11:33Z Sam Merry <sam@turu.me> # Metrics api view.
+view.accounts [schema.turu] 2015-01-08T03:39:59Z Sam Merry <sam@turu.me> # Device api view.
